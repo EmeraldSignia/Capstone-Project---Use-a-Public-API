@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 4000;
 const API_URL = "https://api.fungenerators.com";
 const APIKey = "alGyauyji9UlMIChi13f9geF";
 
