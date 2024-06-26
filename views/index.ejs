@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/styles.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk:MORF@17&display=swap" rel="stylesheet">
+    <title>Random Facts</title>
+</head>
+<body>
+
+    <h1 class="honk"> Random Fact Generator </h1>
+
+<div class = "wrapper">
+
+    <div class="card">
+        <form action="/get-fact" method="get">
+            <div class="imagecontainer">
+                <img src="/images/questionmark.jpeg" alt="question mark" id="qmark">
+                    <div class="fact"><% if(locals.fact) { %>
+                    <h2><%= fact %> </h2>
+                    <%}%>
+                    </div>
+            </div>
+        <div class="container">
+          <button class="button" type="submit" value ="GET"><span class="text"> Generate Fact</span></button> 
+        </div>
+    </form>
+    </div>
+
+    <div class="card textcard"> 
+        <form action="/submit-fact" method="POST">
+            <div class = "textcontainer"> <h1 class ="texth1"> Submit Your Own Fact!</h1></div>
+                <div class = "textarea"> 
+                     <textarea class="textbox" name="text1" placeholder="Share something interesting..." cols="40" rows="10"></textarea>
+                </div>
+        <div class="container">
+             <button class="button" type="submit"><span class="text"> Submit Fact</span></button> 
+        </div>
+
+</div>
+
+<% if (locals.factId) { %> 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            confirm("You have successfully submitted your fact! Unique fact ID: <%= factId %>");
+        });
+    </script>
+<% } %>
+
+
+    
+</body>
+</html>
